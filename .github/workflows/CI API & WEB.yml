@@ -39,7 +39,7 @@ jobs:
 
   # setup build gradle
     - name: Build with Gradle
-      run: gradle/actions/setup-gradle@v4
+      uses: gradle/actions/setup-gradle@v4
       
 # setup build project
     - name: Build with Gradle
