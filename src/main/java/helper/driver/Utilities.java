@@ -21,6 +21,7 @@ public class Utilities {
                                 "--start-maximized",
                                 "--disable-dev-shm-usage",
                                 "--remote-allow-origin=*",
+                                "--headless=new",
                                 "--incognito"
                 );
 
