@@ -21,15 +21,11 @@ public class ApiUtils {
     }
 
 
-
-
-
     public static RequestSpecification getRequestSpec() throws IOException {
         Properties properties = new Properties();
         properties.load(new FileInputStream("src/main/resources/options.properties"));
 
         URL = properties.getProperty("url");
-
 
         if (requestSpecification == null){
             requestSpecification = given()

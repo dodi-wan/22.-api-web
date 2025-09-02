@@ -1,7 +1,9 @@
 package stepdef.api.filter;
 
+import helper.api.ApiUtils;
 import io.cucumber.java.en.Given;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import pages.api.create.CreatePages;
 
 import java.io.IOException;
@@ -14,8 +16,10 @@ public class TagStepDef {
 
 
 
-    public TagStepDef(){
-        createPages = new CreatePages();
+    public TagStepDef() throws IOException {
+        RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
+        ApiUtils apiUtils = new ApiUtils(requestSpecification);
+        createPages = new CreatePages(apiUtils);
     }
 
 

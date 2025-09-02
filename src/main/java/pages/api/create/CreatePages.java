@@ -12,6 +12,11 @@ import static io.restassured.RestAssured.given;
 public class CreatePages {
     private ApiUtils apiUtils;
 
+    public CreatePages(ApiUtils apiUtils){
+        this.apiUtils = apiUtils;
+
+    }
+
 
 
     public Response getListUser() throws IOException {

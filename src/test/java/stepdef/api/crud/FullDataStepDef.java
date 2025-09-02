@@ -1,9 +1,11 @@
-package stepdef.api.filter;
+package stepdef.api.crud;
 
+import helper.api.ApiUtils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import pages.api.create.CreatePages;
 
@@ -14,14 +16,16 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FullData {
+public class FullDataStepDef {
 
     private final CreatePages createPages;
     private Response response;
     private static String createId;
 
-    public FullData(){
-        createPages = new CreatePages();
+    public FullDataStepDef() throws IOException {
+        RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
+        ApiUtils apiUtils = new ApiUtils(requestSpecification);
+        createPages = new CreatePages(apiUtils);
     }
 
 
@@ -79,5 +83,11 @@ public class FullData {
         String id = createId;
         response = createPages.deleteData(id);
         System.out.println(response.prettyPrint() + response.statusCode());
+    }
+
+
+    @Then("response is {int}")
+    public void responseIs(int statuscode) {
+        assertEquals(statuscode, response.getStatusCode());
     }
 }
