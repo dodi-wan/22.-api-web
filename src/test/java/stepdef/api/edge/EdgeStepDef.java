@@ -36,13 +36,6 @@ public class EdgeStepDef {
         edgeData.put("email", email);
 
         response = createPages.postData(edgeData);
-//        System.out.println(response.prettyPrint() + response.statusCode());
-//
-//        response.then()
-//                .body("title", org.hamcrest.Matchers.equalTo(title))
-//                .body("firstName", org.hamcrest.Matchers.equalTo(firstname))
-//                .body("lastName", org.hamcrest.Matchers.equalTo(lastname))
-//                .body("email", org.hamcrest.Matchers.equalTo(email));
     }
 
     @Then("code is {int}")

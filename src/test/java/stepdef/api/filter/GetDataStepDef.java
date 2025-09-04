@@ -2,13 +2,17 @@ package stepdef.api.filter;
 
 import helper.api.ApiUtils;
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pages.api.create.CreatePages;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GetDataStepDef {
 
@@ -16,37 +20,38 @@ public class GetDataStepDef {
     private Response response;
     private static String getId;
 
+
     public GetDataStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
         createPages = new CreatePages(apiUtils);
-
     }
 
 
-    @Given("access data api")
-    public void accessDataApi() throws IOException {
-        response = createPages.getListUser();
-        System.out.println(response.prettyPrint());
-
+    @And("get data id {string}")
+    public void getDataId(String id) throws IOException {
+        response = createPages.getUserById(id);
     }
 
 
-    @And("status code should be {int}")
-    public void statusCodeShouldBe(int statusCode) {
-        System.out.println("status code = " + response.getStatusCode());
+    @Then("response status code is {int}")
+    public void responseStatusCodeIs(int statuscode) {
+        assertEquals(statuscode, response.getStatusCode());
     }
 
+    @When("get bulk {string}")
+    public void getBulk(String id) throws IOException {
+        List<String> addList = Arrays.asList(id.split(","));
+        response = createPages.getBulkById(addList);
+        List<String> ids = response.jsonPath().getList("data.id");
 
-    @Then("get id data")
-    public void getIdData() throws IOException {
-        getId = response.jsonPath().getString("data[0].id");
-//        createPages.getUserById(getId);
-        System.out.println( "id = " + getId);
+        System.out.println("result " + ids);
     }
 
-
-
+    @Then("status ok response is {int}")
+    public void statusOkResponseIs(int statuscode) {
+        assertEquals(statuscode, response.statusCode());
+    }
 }
 
 

@@ -5,6 +5,7 @@ import io.restassured.response.Response;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -62,7 +63,13 @@ public class CreatePages {
                 .get("/user?" + userId);
     }
 
-   }
+
+    public Response getBulkById(List<String> id) throws IOException {
+        return ApiUtils.getRequestSpec()
+                .when()
+                .get("user/" + "?" + id);
+    }
+}
 
 
 

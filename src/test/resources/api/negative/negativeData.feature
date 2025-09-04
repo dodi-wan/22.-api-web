@@ -1,4 +1,5 @@
 
+@api
 Feature: negative create data variable gender
 
   Scenario Outline: Test create data with negative variable gender

@@ -19,7 +19,7 @@ public class NegativeDataStepDef {
 
 
     private Response response;
-    private CreatePages createPages;
+    private final CreatePages createPages;
 
     public NegativeDataStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();

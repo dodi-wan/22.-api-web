@@ -1,0 +1,24 @@
+
+@Api
+Feature: Get user data by single id and bulk id
+
+
+
+  Scenario: Test get user by single id
+    And get data id "60d0fe4f5311236168a109d4"
+    Then response status code is 200
+
+
+
+  Scenario Outline: Test get user by bulk id
+    When get bulk "<id>"
+    Then status ok response is 200
+    Examples:
+      |           id             |
+      | 60d0fe4f5311236168a109e6 |
+      | 60d0fe4f5311236168a109e7 |
+      | 60d0fe4f5311236168a109e9 |
+      | 60d0fe4f5311236168a109ea |
+      | 60d0fe4f5311236168a109eb |
+
+

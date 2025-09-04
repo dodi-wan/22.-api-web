@@ -1,15 +1,12 @@
 package stepdef.api.get;
 
 import helper.api.ApiUtils;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import pages.api.create.CreatePages;
 import pages.api.get.GetPages;
 
-import javax.accessibility.AccessibleRelation;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
