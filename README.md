@@ -61,5 +61,6 @@
 3. Report:
   ```bash
   for report target folder:
-    - cucumber-report.html
+    - api-report.html
+    - web-report.html
 
