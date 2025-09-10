@@ -10,19 +10,16 @@
 ###### Project how to know difference positive test, negative test, behaviuor expected (expected failed in real case no failed)
 
 ###### properties:
-- intellij idea or IDE
-- CI github action
-- java
-- gradle
-- Junit 5
-- ci: Github Action
-- org.junit:junit-bom:5.10.0
-- org.junit.jupiter:junit-jupiter
-- junit platform
-- cucumber gherkin
-- selenium
-- github.bonigarcia
-- net.java.dev.jna
+- IDE: IntelliJ IDEA
+- Build tool: Gradle
+- Language: Java
+- Test framework: JUnit 5
+- Dependencies:
+  - `org.junit.jupiter:junit-jupiter`
+  - `io.cucumber:cucumber-java`, `cucumber-junit-platform-engine`
+  - `org.seleniumhq.selenium:selenium-java`
+  - `io.github.bonigarcia:webdrivermanager`
+  - `io.rest-assured:rest-assured`
 
 
 ##### structure
