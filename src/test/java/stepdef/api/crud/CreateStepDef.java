@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
-import pages.api.create.CreatePages;
+
 import pages.api.delete.DeletePages;
 import pages.api.post.PostPages;
 
@@ -19,7 +19,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CreateStepDef {
 
-    private final CreatePages createPages;
     private final PostPages postPages;
     private final DeletePages deletePages;
 
@@ -30,7 +29,6 @@ public class CreateStepDef {
     public CreateStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
-        createPages = new CreatePages(apiUtils);
         postPages = new PostPages(apiUtils);
         deletePages = new DeletePages(apiUtils);
     }

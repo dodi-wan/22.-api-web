@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
-import pages.api.create.CreatePages;
+
 import pages.api.post.PostPages;
 
 import java.io.IOException;
@@ -18,15 +18,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class NegativeDataStepDef {
 
-
     private Response response;
-    private final CreatePages createPages;
     private final PostPages postPages;
+
 
     public NegativeDataStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
-        createPages = new CreatePages(apiUtils);
         postPages = new PostPages(apiUtils);
     }
 
