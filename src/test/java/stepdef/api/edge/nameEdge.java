@@ -6,6 +6,7 @@ import io.cucumber.java.en.Then;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pages.api.create.CreatePages;
+import pages.api.post.PostPages;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -16,12 +17,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class nameEdge {
 
     private final CreatePages createPages;
+    private final PostPages postPages;
     private Response response;
 
     public nameEdge() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
         createPages = new CreatePages(apiUtils);
+        postPages = new PostPages(apiUtils);
     }
 
 
@@ -35,7 +38,7 @@ public class nameEdge {
         createData.put("email", email);
         createData.put("dateOfBirth", birth);
 
-        response = createPages.postData(createData);
+        response = postPages.postData(createData);
         System.out.println(response.prettyPrint() + response.statusCode());
     }
 

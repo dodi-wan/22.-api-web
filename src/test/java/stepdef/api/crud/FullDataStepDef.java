@@ -8,6 +8,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import pages.api.create.CreatePages;
+import pages.api.delete.DeletePages;
+import pages.api.post.PostPages;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -19,6 +21,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FullDataStepDef {
 
     private final CreatePages createPages;
+    private final PostPages postPages;
+    private final DeletePages deletePages;
+
     private Response response;
     private static String createId;
 
@@ -26,6 +31,8 @@ public class FullDataStepDef {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
         createPages = new CreatePages(apiUtils);
+        postPages = new PostPages(apiUtils);
+        deletePages = new DeletePages(apiUtils);
     }
 
 
@@ -63,7 +70,7 @@ public class FullDataStepDef {
         user.put("timezone", timezone);
 
 
-        response = createPages.postData(createData);
+        response = postPages.postData(createData);
         createId = response.jsonPath().getString("id");
 
         System.out.println(response.prettyPrint() + response.statusCode()
@@ -81,7 +88,7 @@ public class FullDataStepDef {
     @And("delete user")
     public void deleteUser() throws IOException {
         String id = createId;
-        response = createPages.deleteData(id);
+        response = deletePages.deleteData(id);
         System.out.println(response.prettyPrint() + response.statusCode());
     }
 

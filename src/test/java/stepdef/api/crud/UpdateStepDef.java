@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import pages.api.create.CreatePages;
+import pages.api.put.PutPages;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -17,12 +18,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class UpdateStepDef {
 
     private Response response;
-    private CreatePages createPages;
+    private final CreatePages createPages;
+    private final PutPages putPages;
 
     public UpdateStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
         createPages = new CreatePages(apiUtils);
+        putPages = new PutPages(apiUtils);
     }
 
 
@@ -40,7 +43,7 @@ public class UpdateStepDef {
         jsonObject.put("lastName", lastName);
 
 
-        response = createPages.putData(updateData, id);
+        response = putPages.putData(updateData, id);
         System.out.println("update data " + response.prettyPrint());
 
     }

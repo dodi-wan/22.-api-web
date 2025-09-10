@@ -26,49 +26,13 @@ public class CreatePages {
                 .get("/user/");
     }
 
-    public Response getListUser(String dateParams) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .when()
-                .get("/user/");
-    }
 
 
 
-    public Response postData(Map<String, Object> payload) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .body(payload)
-                .when()
-                .post("/user/create");
-
-    }
 
 
-    public Response putData(Map<String, Object> payload, String id) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .body(payload)
-                .when()
-                .put("/user/"  + id);
-    }
-
-    public Response deleteData(String id) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .when()
-                .delete("/user/" + id);
-    }
 
 
-    public Response getUserById(String userId) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .when()
-                .get("/user?" + userId);
-    }
-
-
-    public Response getBulkById(List<String> id) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .when()
-                .get("user/" + "?" + id);
-    }
 }
 
 

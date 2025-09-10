@@ -7,6 +7,7 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import pages.api.create.CreatePages;
+import pages.api.post.PostPages;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -20,11 +21,13 @@ public class NegativeDataStepDef {
 
     private Response response;
     private final CreatePages createPages;
+    private final PostPages postPages;
 
     public NegativeDataStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
         createPages = new CreatePages(apiUtils);
+        postPages = new PostPages(apiUtils);
     }
 
 
@@ -44,7 +47,7 @@ public class NegativeDataStepDef {
         jsonObject.put("email", email);
         jsonObject.put("gender", gender);
 
-        response = createPages.postData(updateData);
+        response = postPages.postData(updateData);
         System.out.println("result " + response.prettyPrint());
     }
 

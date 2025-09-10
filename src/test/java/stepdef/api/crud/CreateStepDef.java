@@ -8,6 +8,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import pages.api.create.CreatePages;
+import pages.api.delete.DeletePages;
+import pages.api.post.PostPages;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,6 +20,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CreateStepDef {
 
     private final CreatePages createPages;
+    private final PostPages postPages;
+    private final DeletePages deletePages;
+
     private static String createId;
     private Response response;
 
@@ -26,6 +31,8 @@ public class CreateStepDef {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
         createPages = new CreatePages(apiUtils);
+        postPages = new PostPages(apiUtils);
+        deletePages = new DeletePages(apiUtils);
     }
 
 
@@ -44,7 +51,7 @@ public class CreateStepDef {
         jsonObject.put("lastName", lastname);
         jsonObject.put("email", email);
 
-        response = createPages.postData(createData);
+        response = postPages.postData(createData);
         createId = response.jsonPath().getString("id");
         System.out.println("result : \n" + response.prettyPrint());
         System.out.println("ID " + createId);
@@ -60,7 +67,7 @@ public class CreateStepDef {
 
     @And("delete data")
     public void deleteData() throws IOException {
-        Response response = createPages.deleteData(createId);
+        Response response = deletePages.deleteData(createId);
         System.out.println(response.prettyPrint() + response.statusCode());
     }
 

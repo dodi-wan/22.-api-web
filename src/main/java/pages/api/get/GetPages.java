@@ -4,6 +4,7 @@ import helper.api.ApiUtils;
 import io.restassured.response.Response;
 
 import java.io.IOException;
+import java.util.List;
 
 public class GetPages {
 
@@ -19,6 +20,20 @@ public class GetPages {
                     .when()
                     .get("/user/");
         }
+
+
+    public Response getUserById(String userId) throws IOException {
+        return ApiUtils.getRequestSpec()
+                .when()
+                .get("/user?" + userId);
+    }
+
+
+    public Response getBulkById(List<String> id) throws IOException {
+        return ApiUtils.getRequestSpec()
+                .when()
+                .get("user/" + "?" + id);
+    }
 
 
     }

@@ -4,13 +4,13 @@ import helper.api.ApiUtils;
 import io.cucumber.java.en.Given;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import pages.api.create.CreatePages;
+import pages.api.get.GetPages;
 
 import java.io.IOException;
 
 public class TagStepDef {
 
-    private CreatePages createPages;
+    private GetPages getPages;
     private static String date;
     private Response response;
 
@@ -19,7 +19,7 @@ public class TagStepDef {
     public TagStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();
         ApiUtils apiUtils = new ApiUtils(requestSpecification);
-        createPages = new CreatePages(apiUtils);
+        getPages = new GetPages(apiUtils);
     }
 
 
@@ -27,7 +27,7 @@ public class TagStepDef {
     @Given("input date current")
     public void inputDateCurrent() throws IOException {
         date = "?date=2025-08-21";
-        response  = createPages.getListUser(date);
+//        response  = getPages.getListUser(date);
         System.out.println(response.prettyPrint());
     }
 }
