@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.729s</div>
+<div class="counter">3.686s</div>
 <p>duration</p>
 </div>
 </td>
@@ -82,57 +82,57 @@
 </thead>
 <tr>
 <td class="success">Example #1.1</td>
-<td class="success">0.107s</td>
+<td class="success">2.265s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.1</td>
-<td class="success">2.361s</td>
+<td class="success">0.093s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.1</td>
-<td class="success">0.146s</td>
+<td class="success">0.145s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.1</td>
-<td class="success">0.255s</td>
+<td class="success">0.272s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.1</td>
-<td class="success">0.108s</td>
+<td class="success">0.119s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.2</td>
-<td class="success">0.117s</td>
+<td class="success">0.135s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.3</td>
-<td class="success">0.131s</td>
+<td class="success">0.142s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.4</td>
-<td class="success">0.127s</td>
+<td class="success">0.123s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Example #1.5</td>
-<td class="success">0.131s</td>
+<td class="success">0.127s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Test filter data api</td>
-<td class="success">0.132s</td>
+<td class="success">0.134s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">Test get user by single id</td>
-<td class="success">0.114s</td>
+<td class="success">0.131s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -144,33 +144,33 @@
 @Api
 Scenario Outline: Test create a data user API                ?[90m# api/crud/createApi.feature:14?[0m
 {
-    &quot;id&quot;: &quot;68c3839a6d56e95421014d38&quot;,
+    &quot;id&quot;: &quot;68c38bf66d56e909e3014dae&quot;,
     &quot;title&quot;: &quot;mr&quot;,
     &quot;firstName&quot;: &quot;the&quot;,
     &quot;lastName&quot;: &quot;undertaker&quot;,
     &quot;email&quot;: &quot;deadman@wwe.com&quot;,
-    &quot;registerDate&quot;: &quot;2025-09-12T02:21:14.519Z&quot;,
-    &quot;updatedDate&quot;: &quot;2025-09-12T02:21:14.519Z&quot;
+    &quot;registerDate&quot;: &quot;2025-09-12T02:56:54.561Z&quot;,
+    &quot;updatedDate&quot;: &quot;2025-09-12T02:56:54.561Z&quot;
 }
 result : 
 {
-    &quot;id&quot;: &quot;68c3839a6d56e95421014d38&quot;,
+    &quot;id&quot;: &quot;68c38bf66d56e909e3014dae&quot;,
     &quot;title&quot;: &quot;mr&quot;,
     &quot;firstName&quot;: &quot;the&quot;,
     &quot;lastName&quot;: &quot;undertaker&quot;,
     &quot;email&quot;: &quot;deadman@wwe.com&quot;,
-    &quot;registerDate&quot;: &quot;2025-09-12T02:21:14.519Z&quot;,
-    &quot;updatedDate&quot;: &quot;2025-09-12T02:21:14.519Z&quot;
+    &quot;registerDate&quot;: &quot;2025-09-12T02:56:54.561Z&quot;,
+    &quot;updatedDate&quot;: &quot;2025-09-12T02:56:54.561Z&quot;
 }
-ID 68c3839a6d56e95421014d38
+ID 68c38bf66d56e909e3014dae
   ?[32mGiven ?[0m?[32minput data ?[0m?[32m?[1m&quot;mr&quot;?[0m?[32m ?[0m?[32m?[1m&quot;the&quot;?[0m?[32m ?[0m?[32m?[1m&quot;undertaker&quot;?[0m?[32m ?[0m?[32m?[1m&quot;deadman@wwe.com&quot;?[0m ?[90m# stepdef.api.crud.CreateStepDef.inputData(java.lang.String,java.lang.String,java.lang.String,java.lang.String)?[0m
 status respons 200
   ?[32mThen ?[0m?[32mstatus code is ?[0m?[32m?[1m200?[0m                                    ?[90m# stepdef.api.crud.CreateStepDef.statusCodeIs(int)?[0m
 {
-    &quot;id&quot;: &quot;68c3839a6d56e95421014d38&quot;
+    &quot;id&quot;: &quot;68c38bf66d56e909e3014dae&quot;
 }
 {
-    &quot;id&quot;: &quot;68c3839a6d56e95421014d38&quot;
+    &quot;id&quot;: &quot;68c38bf66d56e909e3014dae&quot;
 }200
   ?[32mAnd ?[0m?[32mdelete data?[0m                                            ?[90m# stepdef.api.crud.CreateStepDef.deleteData()?[0m
 status response 200
@@ -179,7 +179,7 @@ status response 200
 @Api
 Scenario Outline: Test create full of data                                                                                                                       ?[90m# api/crud/fulldata.feature:15?[0m
 {
-    &quot;id&quot;: &quot;68c3839b6d56e92b83014d3f&quot;,
+    &quot;id&quot;: &quot;68c38bf76d56e92fcc014db5&quot;,
     &quot;title&quot;: &quot;mr&quot;,
     &quot;firstName&quot;: &quot;Bahlil&quot;,
     &quot;lastName&quot;: &quot;Bahlul&quot;,
@@ -187,11 +187,11 @@ Scenario Outline: Test create full of data                                      
     &quot;email&quot;: &quot;rajakecil@golkar.com&quot;,
     &quot;dateOfBirth&quot;: &quot;1971-06-12T00:00:00.000Z&quot;,
     &quot;phone&quot;: &quot;0866667777&quot;,
-    &quot;registerDate&quot;: &quot;2025-09-12T02:21:15.208Z&quot;,
-    &quot;updatedDate&quot;: &quot;2025-09-12T02:21:15.208Z&quot;
+    &quot;registerDate&quot;: &quot;2025-09-12T02:56:55.289Z&quot;,
+    &quot;updatedDate&quot;: &quot;2025-09-12T02:56:55.289Z&quot;
 }
 {
-    &quot;id&quot;: &quot;68c3839b6d56e92b83014d3f&quot;,
+    &quot;id&quot;: &quot;68c38bf76d56e92fcc014db5&quot;,
     &quot;title&quot;: &quot;mr&quot;,
     &quot;firstName&quot;: &quot;Bahlil&quot;,
     &quot;lastName&quot;: &quot;Bahlul&quot;,
@@ -199,10 +199,10 @@ Scenario Outline: Test create full of data                                      
     &quot;email&quot;: &quot;rajakecil@golkar.com&quot;,
     &quot;dateOfBirth&quot;: &quot;1971-06-12T00:00:00.000Z&quot;,
     &quot;phone&quot;: &quot;0866667777&quot;,
-    &quot;registerDate&quot;: &quot;2025-09-12T02:21:15.208Z&quot;,
-    &quot;updatedDate&quot;: &quot;2025-09-12T02:21:15.208Z&quot;
+    &quot;registerDate&quot;: &quot;2025-09-12T02:56:55.289Z&quot;,
+    &quot;updatedDate&quot;: &quot;2025-09-12T02:56:55.289Z&quot;
 }200{
-    &quot;id&quot;: &quot;68c3839b6d56e92b83014d3f&quot;,
+    &quot;id&quot;: &quot;68c38bf76d56e92fcc014db5&quot;,
     &quot;title&quot;: &quot;mr&quot;,
     &quot;firstName&quot;: &quot;Bahlil&quot;,
     &quot;lastName&quot;: &quot;Bahlul&quot;,
@@ -210,18 +210,18 @@ Scenario Outline: Test create full of data                                      
     &quot;email&quot;: &quot;rajakecil@golkar.com&quot;,
     &quot;dateOfBirth&quot;: &quot;1971-06-12T00:00:00.000Z&quot;,
     &quot;phone&quot;: &quot;0866667777&quot;,
-    &quot;registerDate&quot;: &quot;2025-09-12T02:21:15.208Z&quot;,
-    &quot;updatedDate&quot;: &quot;2025-09-12T02:21:15.208Z&quot;
+    &quot;registerDate&quot;: &quot;2025-09-12T02:56:55.289Z&quot;,
+    &quot;updatedDate&quot;: &quot;2025-09-12T02:56:55.289Z&quot;
 }
-id = 68c3839b6d56e92b83014d3f
+id = 68c38bf76d56e92fcc014db5
   ?[32mGiven ?[0m?[32minput ?[0m?[32m?[1m&quot;mr&quot;?[0m?[32m ?[0m?[32m?[1m&quot;Bahlil&quot;?[0m?[32m ?[0m?[32m?[1m&quot;Bahlul&quot;?[0m?[32m ?[0m?[32m?[1m&quot;rajakecil@golkar.com&quot;?[0m?[32m ?[0m?[32m?[1m&quot;1971/6/12&quot;?[0m?[32m ?[0m?[32m?[1m&quot;0866667777&quot;?[0m?[32m ?[0m?[32m?[1m&quot;www.rajamini&quot;?[0m?[32m and location ?[0m?[32m?[1m&quot;papua&quot;?[0m?[32m ?[0m?[32m?[1m&quot;timika&quot;?[0m?[32m ?[0m?[32m?[1m&quot;east papua&quot;?[0m?[32m ?[0m?[32m?[1m&quot;konoha&quot;?[0m?[32m ?[0m?[32m?[1m&quot;+05.00&quot;?[0m ?[90m# stepdef.api.crud.FullDataStepDef.inputAndLocation(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)?[0m
 200
   ?[32mThen ?[0m?[32mstatus code should ?[0m?[32m?[1m200?[0m                                                                                                                                    ?[90m# stepdef.api.crud.FullDataStepDef.statusCodeShould(int)?[0m
 {
-    &quot;id&quot;: &quot;68c3839b6d56e92b83014d3f&quot;
+    &quot;id&quot;: &quot;68c38bf76d56e92fcc014db5&quot;
 }
 {
-    &quot;id&quot;: &quot;68c3839b6d56e92b83014d3f&quot;
+    &quot;id&quot;: &quot;68c38bf76d56e92fcc014db5&quot;
 }200
   ?[32mAnd ?[0m?[32mdelete user?[0m                                                                                                                                                ?[90m# stepdef.api.crud.FullDataStepDef.deleteUser()?[0m
   ?[32mThen ?[0m?[32mresponse is ?[0m?[32m?[1m200?[0m                                                                                                                                           ?[90m# stepdef.api.crud.FullDataStepDef.responseIs(int)?[0m
@@ -366,7 +366,7 @@ Scenario: Test filter data api ?[90m# api/filtering/filterdata.feature:5?[0m
     &quot;page&quot;: 0,
     &quot;limit&quot;: 20
 }
-io.restassured.internal.RestAssuredResponseImpl@4e9e0c6{
+io.restassured.internal.RestAssuredResponseImpl@2f0cab82{
     &quot;data&quot;: [
         {
             &quot;id&quot;: &quot;679a189449c70701f935e279&quot;,
@@ -538,7 +538,7 @@ SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="https://www.gradle.org">Gradle 8.13</a> at Sep 12, 2025, 2:25:06 AM</p>
+<a href="https://www.gradle.org">Gradle 8.13</a> at Sep 12, 2025, 3:00:47 AM</p>
 </div>
 </div>
 </body>
