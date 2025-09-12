@@ -48,7 +48,7 @@
 1. Clone repository:
    ```bash
    git clone https://github.com/dodi-wan/22.-api-web.git
-   cd automation-framework
+   cd ```your local folder```
 
 2. Build & Test:
    ```bash
@@ -57,7 +57,13 @@
 
 3. Report:
   ```bash
-  for report target folder:
+  for report target local folder:
     - api-report.html
     - web-report.html
+  for report on github web:
+    - go to menu bar action
+    - click the newest workflow
+    - click summary
+    - for report online "see 'pages-build-deploymeny' then click "deploy"
+    - for report download below "pages-build-deployment" title "Artifacts" click download github-pages
 
