@@ -55,6 +55,13 @@ jobs:
     - name: Run Tests
       run: ./gradlew clean test
 
+# upload hasil test report
+    - name: Upload Test Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-report      
+        path: build/reports/tests/test 
+
 # setup untuk status report di github action
     - name: Upload Gradle problems report
       if: always()
@@ -70,16 +77,10 @@ jobs:
      needs: build   # tunggu job build selesai
      permissions:
       contents: write
+    
      steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-# upload hasil test report
-      - name: Upload Test Report
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-report      
-          path: build/reports/tests/test  
 
  # download test hasil report     
       - name: Download test report artifact
@@ -88,6 +89,7 @@ jobs:
           name: test-report
           path: ./report
 
+  # Deploy github pages
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
