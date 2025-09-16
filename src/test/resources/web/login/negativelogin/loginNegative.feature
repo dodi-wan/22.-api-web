@@ -8,18 +8,14 @@ Feature: Login automation non-credential
   boundary value input username max 21 character. Expected: if input username less 21 character
   message show "performance_glitch_user"
 
-
+  @web
   Scenario Outline: Test login non-credential list website
     Given verify on homepage
     And input "<username>" and "<password>"
     Then click button login
-    Given verify login
+    Given verify login "<message>"
 
     Examples:
-      |     username                  |   password          |
-      |     standard_use              |   secret_sauce      |
-      |     standard_user             |   secret_saucer     |
-      |     konoha                    |   secret_sauce      |
-      |                               |   secret_sauce      |
-      |     standard_user             |                     |
-      |                               |                     |
+      | username        |   password   | message                                                                   |
+      | uzumaki sunarto | secret_sauce | Epic sadface: Username and password do not match any user in this service |
+      | standard_user   | konoha       | Epic sadface: Username and password do not match any user in this service |

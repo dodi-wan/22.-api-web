@@ -24,7 +24,7 @@ public class FilterPriceStepDef {
 
     @Then("choose Price \\(low to high)")
     public void choosePriceLowToHigh() {
-        filterPricePages.click_low_high();
+        filterPricePages.clickLowHigh();
 
     }
 
@@ -46,7 +46,7 @@ public class FilterPriceStepDef {
 
     @And("choose Price \\(high to low)")
     public void choosePriceHighToLow() {
-        filterPricePages.click_high_low();
+        filterPricePages.clickHighLow();
     }
 
     @Given("verify product Price \\(high to low)")

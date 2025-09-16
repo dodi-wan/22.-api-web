@@ -44,6 +44,7 @@ public class FilterNameStepDef {
         // Bandingkan
         Assertions.assertEquals(actualNames, expectedNames,
                 "Produk tidak terurut A-Z sesuai filter!");
+        System.out.println("Result A-Z \n" + actualNames + "\n");
     }
 
 
@@ -65,6 +66,8 @@ public class FilterNameStepDef {
 
         // Bandingkan
         Assertions.assertEquals(actualNames, expectedNames,
-                "Produk tidak terurut A-Z sesuai filter!");
+                "Produk tidak terurut Z-A sesuai filter!");
+
+        System.out.println("result Z-A\n" + actualNames);
     }
 }

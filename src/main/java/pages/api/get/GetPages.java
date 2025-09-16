@@ -25,18 +25,10 @@ public class GetPages {
     public Response getUserById(String userId) throws IOException {
         return ApiUtils.getRequestSpec()
                 .when()
-                .get("/user?" + userId);
+                .get("user/" + userId);
     }
 
-
-    public Response getBulkById(List<String> id) throws IOException {
-        return ApiUtils.getRequestSpec()
-                .when()
-                .get("user/" + "?" + id);
-    }
-
-
-    }
+}
 
 
 

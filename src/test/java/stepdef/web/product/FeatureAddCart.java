@@ -1,10 +1,13 @@
 package stepdef.web.product;
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import pages.web.product.addCart.AddToCartPages;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FeatureAddCart {
 
@@ -47,5 +50,16 @@ public class FeatureAddCart {
     public void userClickAddToCartProductAnd(String product1, String product2) {
         addToCartPages.addBikeLight();
         addToCartPages.addTshirtRed();
+    }
+
+
+
+    @Given("text add to cart")
+    public void textAddToCart() {
+        String removeBackPack = addToCartPages.getRemoveBackPack();
+        assertEquals("Add to cart", removeBackPack);
+
+        System.out.println("Result \n" + removeBackPack);
+
     }
 }

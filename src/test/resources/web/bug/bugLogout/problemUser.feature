@@ -5,11 +5,13 @@ Feature: Log out uses credential username and password
 
   Background:
     Given verify on homepage
-    And input "error_user" and "secret_sauce"
+    And input "standard_user" and "secret_sauce"
     Then click button login
-
-  Scenario: Test logout credential data
     Given verify login
+
+
+  @web
+  Scenario: Test logout credential data
     And click 3 strips menu at top-left window
     Then click logout
     Given verify on homepage

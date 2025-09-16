@@ -5,13 +5,12 @@ Feature: message login
 
   Description:
   boundary value input username minimum 8 character. Expected: message error, input username less 8 character
-  boundary value input username max 21 character. Expected: if input username less 21 character
+  boundary value input username max 21 character. Expected: if input username more than 21 character
   message show "performance_glitch_user"
 
 
 
 @web
-#Scenario verify message login match with condition case
     Scenario Template: Test verify message login
       Given verify on homepage
       And input "<username>" and "<password>"

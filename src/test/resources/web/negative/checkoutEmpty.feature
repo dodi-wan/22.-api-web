@@ -7,16 +7,21 @@ Feature: Failure checkout empty product with input symbol data customer
     Given verify on homepage
     And input "standard_user" and "secret_sauce"
     Then click button login
+    Given verify login
 
+
+  @web
   Scenario Outline: Test checkout empty product with symbol data customer
     Given verify login
     And click shop cart
     And click checkout
-    And input "<firstname>" "<lastname>" "<zip code>"
+    And input "%" "#" "@"
     Then click continue
     Then click finish button
-    Given can see title "Thank you for your order!"
+    Then the result is showed text "<message>"
 
     Examples:
-      |   firstname  |  lastname  |  zip code  |
-      |       %      |      #     |     @      |
+      |                                         message                                        |
+      |                               Thank you for your order!                                |
+      |Your order has been dispatched, and will arrive just as fast as the pony can get there! |
+      |                                 Checkout: Complete!                                    |

@@ -10,16 +10,21 @@ import static helper.driver.Utilities.driver;
 
 public class AddToCartPages {
 
-
     private WebDriverWait wait;
+    private WebElement element;
 
-    By add_cart_backpack = By.id("add-to-cart-sauce-labs-backpack");
-    By add_bike_light = By.id("add-to-cart-sauce-labs-bike-light");
-    By add_bolt_tshirt = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
-    By add_fleece_jacket = By.id("add-to-cart-sauce-labs-fleece-jacket");
-    By add_onesie = By.id("add-to-cart-sauce-labs-onesie");
-    By add_thisrt_red = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
-    By cartbadge = By.className("shopping_cart_badge");
+
+    By addCartBackpack = By.id("add-to-cart-sauce-labs-backpack");
+    By addBikeLight = By.id("add-to-cart-sauce-labs-bike-light");
+    By addBoltTshirt = By.id("add-to-cart-sauce-labs-bolt-t-shirt");
+    By addFleeceJacket = By.id("add-to-cart-sauce-labs-fleece-jacket");
+    By addOnesie = By.id("add-to-cart-sauce-labs-onesie");
+    By addThisrtRed = By.id("add-to-cart-test.allthethings()-t-shirt-(red)");
+    By cartBadge = By.className("shopping_cart_badge");
+
+    By titleRemoveBackPack = By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[2]/button[1]");
+
+
 
 
     public AddToCartPages(){
@@ -27,33 +32,33 @@ public class AddToCartPages {
     };
 
     public void adCartBackpack(){
-        driver.findElement(add_cart_backpack).click();
+        driver.findElement(addCartBackpack).click();
     }
 
     public void addBikeLight(){
-        driver.findElement(add_bike_light).click();
+        driver.findElement(addBikeLight).click();
     }
 
     public void addBoltTshirt(){
-        driver.findElement(add_bolt_tshirt).click();
+        driver.findElement(addBoltTshirt).click();
     }
 
     public void addFleeceJacket(){
-        driver.findElement(add_fleece_jacket).click();
+        driver.findElement(addFleeceJacket).click();
     }
 
     public void addOnesie(){
-        driver.findElement(add_onesie).click();
+        driver.findElement(addOnesie).click();
     }
 
     public void addTshirtRed(){
-        driver.findElement(add_thisrt_red).click();
+        driver.findElement(addThisrtRed).click();
     }
 
 
     public int getTotalProduct(){
         try{
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(cartbadge));
+            element = wait.until(ExpectedConditions.elementToBeClickable(cartBadge));
             String BadgeText = element.getText().trim();
             return Integer.parseInt(BadgeText);
         } catch (NoSuchElementException e) {
@@ -62,6 +67,18 @@ public class AddToCartPages {
             System.out.println("Timeout for search element " + e.getMessage());
         }
         return 0;
+    }
+
+
+
+    public String getRemoveBackPack() {
+        String text;
+
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        element = wait.until(ExpectedConditions.visibilityOfElementLocated(titleRemoveBackPack));
+        text = element.getText();
+
+        return text;
     }
 
 }

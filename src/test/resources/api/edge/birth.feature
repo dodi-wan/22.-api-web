@@ -3,7 +3,6 @@
 Feature: Boundary Value birth date
 
 
-  Background: birth 1/1/1900
 
   @Api
 Scenario Outline: Test input below 1900

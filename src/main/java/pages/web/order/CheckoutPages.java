@@ -12,16 +12,22 @@ public class CheckoutPages {
 
 
     private WebDriverWait wait;
+    private WebElement element;
 
-    By checkout_button = By.id("checkout");
+    By checkoutButton = By.id("checkout");
 
-    By firstname_input = By.xpath("//input[@placeholder='First Name']");
-    By lastname_input = By.xpath("//input[@placeholder='Last Name']");
-    By zip_code_input = By.xpath("//input[@placeholder='Zip/Postal Code']");
+    By firstnameInput = By.xpath("//input[@placeholder='First Name']");
+    By lastnameInput = By.xpath("//input[@placeholder='Last Name']");
+    By zipCodeInput = By.xpath("//input[@placeholder='Zip/Postal Code']");
 
-    By continue_button = By.id("continue");
-    By finish_button = By.id("finish");
-    By order_success = By.xpath("//h2[contains(text(),'Thank you for your order!')]");
+    By continueButton = By.id("continue");
+    By finishButton = By.id("finish");
+
+    By orderSuccess = By.xpath("//h2[contains(text(),'Thank you for your order!')]");
+
+    By orderMessage (String message) {
+        return By.xpath("//*[contains (text (), '" + message + "' )]");
+    }
 
 
 
@@ -32,7 +38,7 @@ public class CheckoutPages {
 
     public void checkoutButton(){
         try {
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(checkout_button));
+            element = wait.until(ExpectedConditions.elementToBeClickable(checkoutButton));
             element.click();
         } catch (TimeoutException e) {
             System.out.println("Timeout: element not found " + e.getMessage());
@@ -45,7 +51,7 @@ public class CheckoutPages {
 
     public void firstNameInput(String firstname){
         try {
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(firstname_input));
+            element = wait.until(ExpectedConditions.elementToBeClickable(firstnameInput));
             element.sendKeys(firstname);
         } catch (TimeoutException t){
             System.out.println("Timeout not found element " + t.getMessage());
@@ -58,7 +64,7 @@ public class CheckoutPages {
 
     public void lastNameInput(String lastname){
         try {
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(lastname_input));
+            element = wait.until(ExpectedConditions.elementToBeClickable(lastnameInput));
             element.sendKeys(lastname);
         } catch (TimeoutException e){
             System.out.println("\nTimeout element not found " + e.getMessage());
@@ -71,7 +77,7 @@ public class CheckoutPages {
 
     public void zipCodeInput(String zipCode){
         try {
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(zip_code_input));
+            element = wait.until(ExpectedConditions.elementToBeClickable(zipCodeInput));
             element.sendKeys(zipCode);
         } catch (TimeoutException e){
             System.out.println("\nTimeout element not found " + e.getMessage());
@@ -83,7 +89,7 @@ public class CheckoutPages {
 
     public void continueButton(){
         try {
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(continue_button));
+            element = wait.until(ExpectedConditions.elementToBeClickable(continueButton));
             element.click();
         } catch (TimeoutException e){
             System.out.println("\nTimeout element not found " + e.getMessage());
@@ -95,7 +101,7 @@ public class CheckoutPages {
 
     public void finishButton(){
         try {
-            WebElement element = wait.until(ExpectedConditions.elementToBeClickable(finish_button));
+            element = wait.until(ExpectedConditions.elementToBeClickable(finishButton));
             element.click();
         } catch (TimeoutException e){
             System.out.println("\nTimeout element not found " + e.getMessage());
@@ -107,8 +113,19 @@ public class CheckoutPages {
 
 
     public void orderSuccess(){
-        driver.findElement(order_success).isDisplayed();
+        driver.findElement(orderSuccess).isDisplayed();
     }
+
+
+    public String messageOrder(String message){
+        String text;
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        element = wait.until(ExpectedConditions.visibilityOfElementLocated(orderMessage(message)));
+        text = element.getText();
+
+        return text;
+    }
+
 
 
 }

@@ -8,18 +8,18 @@ public class MessagePages {
 
     private WebElement element;
 
-    By wrong_username (String message){
+    By messageWrongUsername (String message){
         return By.xpath("//*[contains (text (), '" + message + "' )]");
     }
 
 
     public void wrongUsername(String message){
-        driver.findElement(wrong_username(message)).isDisplayed();
+        driver.findElement(messageWrongUsername(message)).isDisplayed();
     }
 
 
     public String messageError(String message){
-        element = driver.findElement(wrong_username(message));
+        element = driver.findElement(messageWrongUsername(message));
         return element.getText();
     }
 

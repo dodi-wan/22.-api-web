@@ -16,11 +16,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GetDataStepDef {
 
-
     private final GetPages getPages;
-
     private Response response;
-    private static String getId;
+
+    private static String ID;
+    private static String firstname;
+    private static String lastname;
+    private static String title;
+
 
 
     public GetDataStepDef() throws IOException {
@@ -33,6 +36,15 @@ public class GetDataStepDef {
     @And("get data id {string}")
     public void getDataId(String id) throws IOException {
         response = getPages.getUserById(id);
+        ID = response.jsonPath().getString("id");
+        title = response.jsonPath().getString("title");
+        firstname = response.jsonPath().getString("firstName");
+        lastname = response.jsonPath().getString("lastName");
+
+        System.out.println("id = " + ID);
+        System.out.println("title = " + title);
+        System.out.println("firstname = " + firstname);
+        System.out.println("lastname = " + lastname);
     }
 
 
@@ -41,14 +53,17 @@ public class GetDataStepDef {
         assertEquals(statuscode, response.getStatusCode());
     }
 
-    @When("get bulk {string}")
-    public void getBulk(String id) throws IOException {
-        List<String> addList = Arrays.asList(id.split(","));
-        response = getPages.getBulkById(addList);
-        List<String> ids = response.jsonPath().getList("data.id");
 
-        System.out.println("result " + ids);
+    @When("get bulk {string}")
+    public void getBulk(String ids) throws IOException {
+        List<String> idList = Arrays.asList(ids.split(","));
+        for (String id : idList) {
+            response = getPages.getUserById(id);
+            String returnedId = response.jsonPath().getString("id");
+            System.out.println("Result ID: " + returnedId);
+        }
     }
+
 
     @Then("status ok response is {int}")
     public void statusOkResponseIs(int statuscode) {

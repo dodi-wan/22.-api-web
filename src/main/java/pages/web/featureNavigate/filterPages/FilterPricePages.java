@@ -1,10 +1,8 @@
 package pages.web.featureNavigate.filterPages;
 
 
-import helper.driver.Utilities;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,10 +18,9 @@ public class FilterPricePages {
 
     private WebDriverWait wait;
 
-    By product_price = By.className("inventory_item_price");
-    By click_low_high = By.xpath("//option[text()='Price (low to high)']");
-    By click_high_low = By.xpath("//option[text()='Price (high to low)']");
-    By product_name = By.className("inventory_item_name");
+    By productPrice = By.className("inventory_item_price");
+    By elementLowHigh = By.xpath("//option[text()='Price (low to high)']");
+    By elementHighLow = By.xpath("//option[text()='Price (high to low)']");
 
 
     public FilterPricePages(){
@@ -31,9 +28,9 @@ public class FilterPricePages {
     }
 
 
-    public void click_low_high(){
+    public void clickLowHigh(){
         try{
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(click_low_high));
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(elementLowHigh));
         element.click();
 
         } catch (TimeoutException t) {
@@ -45,16 +42,16 @@ public class FilterPricePages {
 
 
     public List<Double> getProductPrice(){
-        return driver.findElements(product_price)
+        return driver.findElements(productPrice)
                 .stream()
                 .map(e ->Double.parseDouble(e.getText().replace("$", "").trim()))
                 .collect(Collectors.toList());
     }
 
 
-    public void click_high_low(){
+    public void clickHighLow(){
         try{
-            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(click_high_low));
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementHighLow));
             element.click();
         } catch (TimeoutException t){
             System.out.println("Timeout element not found " + t.getMessage());

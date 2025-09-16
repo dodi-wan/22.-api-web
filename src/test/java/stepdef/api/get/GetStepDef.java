@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class GetStepDef {
 
     private Response response;
-    private GetPages getPages;
+    private final GetPages getPages;
 
     public GetStepDef() throws IOException {
         RequestSpecification requestSpecification = ApiUtils.getRequestSpec();

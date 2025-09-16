@@ -5,6 +5,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import pages.web.order.CheckoutPages;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class CheckoutStepDef {
 
     private final CheckoutPages checkoutPages;
@@ -46,4 +48,12 @@ public class CheckoutStepDef {
         checkoutPages.orderSuccess();
     }
 
+
+    @Then("the result is showed text {string}")
+    public void theResultIsShowedText(String expectedMessage) {
+        String actualFirstMessage = checkoutPages.messageOrder(expectedMessage);
+
+        assertEquals(expectedMessage, actualFirstMessage);
+        System.out.println("Result \n" + actualFirstMessage + "\n");
+    }
 }

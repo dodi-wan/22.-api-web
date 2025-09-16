@@ -18,6 +18,6 @@ public class MessageStepDef {
         messagePages.wrongUsername(message);
 
         String actualMessage = messagePages.messageError(message);
-         Assertions.assertEquals(actualMessage, message, "message not actual");
+        Assertions.assertEquals(actualMessage, message);
     }
 }
