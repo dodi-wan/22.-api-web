@@ -55,12 +55,18 @@ jobs:
     - name: Run Tests
       run: ./gradlew clean test
 
-# upload hasil test report
-    - name: Upload Test Report
+# debug: cek isi folder report
+    - name: Debug reports path
+      if: always()
+      run: ls -R build/reports || echo "No reports found"
+
+  # upload cucumber report (html + json)
+    - name: Upload Test Reports
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: test-report      
-        path: build/reports/tests/test 
+          name: test-report
+          path: build/reports/test
 
 # setup untuk status report di github action
     - name: Upload Gradle problems report
@@ -82,16 +88,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
- # download test hasil report     
-      - name: Download test report artifact
+ ## download test hasil report     
+      - name: Download Reports
         uses: actions/download-artifact@v4
         with:
           name: test-report
-          path: ./report
+          path: ./public
 
   # Deploy github pages
       - name: Deploy report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./report
+          publish_dir: ./public
