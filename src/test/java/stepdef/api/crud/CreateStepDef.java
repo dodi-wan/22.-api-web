@@ -56,6 +56,7 @@ public class CreateStepDef {
     }
 
 
+
     @Then("status code is {int}")
     public void statusCodeIs(int statuscode) {
     assertEquals(statuscode, response.getStatusCode());
@@ -63,11 +64,13 @@ public class CreateStepDef {
     }
 
 
+
     @And("delete data")
     public void deleteData() throws IOException {
         Response response = deletePages.deleteData(createId);
         System.out.println(response.prettyPrint() + response.statusCode());
     }
+
 
 
     @Then("response delete data should {int}")

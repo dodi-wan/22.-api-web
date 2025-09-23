@@ -1,21 +1,23 @@
 
 
-Feature: message login
+Feature: BVA login and message expected
 
 
   Description:
   boundary value input username minimum 8 character. Expected: message error, input username less 8 character
   boundary value input username max 21 character. Expected: if input username more than 21 character
-  message show "performance_glitch_user"
+  boundary value input password minimum and max 12 characters. Expected: message error, input less 12 characters
+  or input less 12 characters
 
 
 
-@web
+
+  @web
     Scenario Template: Test verify message login
-      Given verify on homepage
-      And input "<username>" and "<password>"
-      Then click button login
-      Given message login "<Expected message>"
+    Given user is on homepage saucedemo
+    When user input username "<username>" and password "<password>"
+    And  user click button login
+    Then message login "<Expected message>"
 
       Examples:
         |     username             |   password        |                        Expected message                                   |

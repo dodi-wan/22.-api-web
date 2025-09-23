@@ -1,8 +1,8 @@
 package stepdef.web.featureNavigate.filter;
 
 import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import pages.web.featureNavigate.filterPages.FilterPricePages;
 
@@ -22,13 +22,13 @@ public class FilterPriceStepDef {
 
 
 
-    @Then("choose Price \\(low to high)")
+    @And("choose Price \\(low to high)")
     public void choosePriceLowToHigh() {
         filterPricePages.clickLowHigh();
 
     }
 
-    @Given("verify product Price \\(low to high)")
+    @Then("verify product Price \\(low to high)")
     public void verifyProductPriceLowToHigh() {
 
         List<Double> actualPrice = filterPricePages.getProductPrice();
@@ -44,12 +44,12 @@ public class FilterPriceStepDef {
 
     }
 
-    @And("choose Price \\(high to low)")
+    @When("choose Price \\(high to low)")
     public void choosePriceHighToLow() {
         filterPricePages.clickHighLow();
     }
 
-    @Given("verify product Price \\(high to low)")
+    @Then("verify product Price \\(high to low)")
     public void verifyProductPriceHighToLow() {
         List<Double> actualPrice = filterPricePages.getProductPrice();
         List<Double> expectedPrice = new ArrayList<>(actualPrice);

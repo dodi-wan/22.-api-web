@@ -3,7 +3,7 @@
 Feature: negative create data variable gender
 
   Scenario Outline: Test create data with negative variable gender
-    Given create input data "<title>" "<firstname>" "<lastname>" "<email>" "<gender>"
+    When user create new data should input "<title>" "<firstname>" "<lastname>" "<email>" "<gender>"
     Then status code 400
 
 

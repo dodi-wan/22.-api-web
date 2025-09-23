@@ -10,12 +10,12 @@ Feature: Login automation non-credential
 
   @web
   Scenario Outline: Test login non-credential list website
-    Given verify on homepage
-    And input "<username>" and "<password>"
-    Then click button login
-    Given verify login "<message>"
+    Given user is on homepage saucedemo
+    When user input username "<username>" and password "<password>"
+    And  user click button login
+    Then message login "<Expected message>"
 
     Examples:
-      | username        |   password   | message                                                                   |
+      | username        |   password   | Expected message                                                          |
       | uzumaki sunarto | secret_sauce | Epic sadface: Username and password do not match any user in this service |
       | standard_user   | konoha       | Epic sadface: Username and password do not match any user in this service |

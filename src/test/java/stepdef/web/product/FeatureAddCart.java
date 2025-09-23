@@ -19,10 +19,13 @@ public class FeatureAddCart {
     }
 
 
-    @And("click add to cart product")
-    public void clickAddToCartProduct() {
+
+    @When("user click add to cart product")
+    public void userClickAddToCartProduct() {
         addToCartPages.adCartBackpack();
     }
+
+
 
     @And("click all add to cart product")
     public void clickAllAddToCartProduct() {
@@ -61,5 +64,14 @@ public class FeatureAddCart {
 
         System.out.println("Result \n" + removeBackPack);
 
+    }
+
+
+    @Then("verify has been click remove")
+    public void verifyHasBeenClickRemove() {
+        String removeBackPack = addToCartPages.getRemoveBackPack();
+        assertEquals("Add to cart", removeBackPack);
+
+        System.out.println("Result \n" + removeBackPack);
     }
 }

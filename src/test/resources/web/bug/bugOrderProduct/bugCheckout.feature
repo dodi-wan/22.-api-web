@@ -5,26 +5,28 @@ Feature: order bug product
 
 
   Description:
-  checkout product without profile customer
+  checkout product without product failure test
 
   Background:
-    Given verify on homepage
-    And input "standard_user" and "secret_sauce"
-    Then click button login
-    Given verify login
+    Given user is on homepage saucedemo
+    When user input username "standard_user" and password "secret_sauce"
+    And  user click button login
+    Then verify user already login page saucedemo
 
 
   @web
   Scenario Outline: Test bug order product
-    And click add to cart product
-    And click shop cart
-    Then remove product
-    And click checkout
-    And input "<firstname>" "<lastname>" "<zip code>"
-    Then click continue
-    Then click finish button
-    Given can see title "Thank you for your order!"
+    When user click add to cart product
+    And user click shop cart
+    But user remove product
+    And user click checkout
+    When user input valid credentials "Monkey" "D Gibran" "1987"
+    And user click continue button
+    When user click finish button
+    Then user can see title "<message order>"
 
     Examples:
-      |   firstname  |  lastname  |  zip code  |
-      |   Monkey     |  D Gibran  |     1987   |
+      |                                      message order                                     |
+      |                                 Thank you for your order!                              |
+      | Your order has been dispatched, and will arrive just as fast as the pony can get there!|
+      |                                      Checkout: Complete!                               |

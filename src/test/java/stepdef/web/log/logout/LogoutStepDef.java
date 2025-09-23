@@ -1,7 +1,10 @@
 package stepdef.web.log.logout;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.web.log.logout.LogoutPages;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LogoutStepDef {
 
@@ -12,8 +15,20 @@ public class LogoutStepDef {
     }
 
 
-    @Then("click logout")
-    public void clickLogout() {
+    @And("user click logout")
+    public void userClickLogout() {
         logoutPages.logoutButton();
+    }
+
+    @Then("user already on homepage login")
+    public void userAlreadyOnHomepageLogin() {
+        String actualUsernameText = logoutPages.getTextUsername();
+        String actualPassword = logoutPages.getTextPassword();
+
+        assertEquals("Accepted usernames are:", actualUsernameText);
+        assertEquals("Password for all users:", actualPassword);
+
+        System.out.println("Result : " + actualUsernameText);
+        System.out.println("Result : " + actualPassword);
     }
 }

@@ -8,7 +8,11 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 @IncludeEngines("cucumber")
 @SelectClasspathResource("api")
 @ConfigurationParameter(key = GLUE_PROPERTY_NAME, value = "stepdef.api, hooks.api")
-@ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "pretty, html:target/api-report.html")
+@ConfigurationParameter(
+        key = PLUGIN_PROPERTY_NAME,
+        value = "json:build/reports/test/apiTest.json," +
+        "html:build/reports/test/apiTest.html"
+    )
 
 
 public class RunnerTestApi {

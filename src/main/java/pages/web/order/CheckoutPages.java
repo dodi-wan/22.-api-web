@@ -125,8 +125,5 @@ public class CheckoutPages {
 
         return text;
     }
-
-
-
 }
 

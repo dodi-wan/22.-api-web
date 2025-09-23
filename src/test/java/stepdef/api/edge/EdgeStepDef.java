@@ -1,8 +1,8 @@
 package stepdef.api.edge;
 
 import helper.api.ApiUtils;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pages.api.post.PostPages;
@@ -26,7 +26,7 @@ public class EdgeStepDef {
 
 
 
-    @Given("input {string} {string} {string} {string}")
+    @When("input {string} {string} {string} {string}")
     public void input(String title, String firstname, String lastname, String email) throws IOException {
         Map<String, Object> edgeData = new HashMap<>();
         edgeData.put("title", title);
@@ -36,6 +36,8 @@ public class EdgeStepDef {
 
         response = postPages.postData(edgeData);
     }
+
+
 
     @Then("code is {int}")
     public void codeIs(int expectedStatusCode) {

@@ -1,8 +1,8 @@
 package stepdef.api.edge;
 
 import helper.api.ApiUtils;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import pages.api.post.PostPages;
@@ -26,7 +26,7 @@ public class nameEdge {
 
 
 
-    @Given("input {string} {string} {string} {string} {string}")
+    @When("input {string} {string} {string} {string} {string}")
     public void input(String title, String firstname, String lastname, String email, String birth) throws IOException {
         Map<String, Object> createData = new HashMap<>();
         createData.put("mr", title);
@@ -38,6 +38,8 @@ public class nameEdge {
         response = postPages.postData(createData);
         System.out.println(response.prettyPrint() + response.statusCode());
     }
+
+
 
     @Then("status response is {int}")
     public void statusResponseIs(int expected) {

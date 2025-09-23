@@ -13,7 +13,7 @@ Feature: edit all data existing
   "picture": "https://randomuser.me/api/portraits/med/men/50.jpg"
 
   Scenario Outline: Test edit and update all data dummy api
-    Given update data "<id>" "<firstName>" "<lastName>"
+    When user update data "<id>" "<firstName>" "<lastName>"
     Then response should be 200
 
 

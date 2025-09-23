@@ -1,7 +1,6 @@
 package stepdef.api.filter;
 
 import helper.api.ApiUtils;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
@@ -33,8 +32,8 @@ public class GetDataStepDef {
     }
 
 
-    @And("get data id {string}")
-    public void getDataId(String id) throws IOException {
+    @When("user get data id {string}")
+    public void userGetDataId(String id) throws IOException {
         response = getPages.getUserById(id);
         ID = response.jsonPath().getString("id");
         title = response.jsonPath().getString("title");
@@ -48,14 +47,16 @@ public class GetDataStepDef {
     }
 
 
+
     @Then("response status code is {int}")
     public void responseStatusCodeIs(int statuscode) {
         assertEquals(statuscode, response.getStatusCode());
     }
 
 
-    @When("get bulk {string}")
-    public void getBulk(String ids) throws IOException {
+
+    @When("user get bulk {string}")
+    public void userGetBulk(String ids) throws IOException {
         List<String> idList = Arrays.asList(ids.split(","));
         for (String id : idList) {
             response = getPages.getUserById(id);
@@ -63,6 +64,7 @@ public class GetDataStepDef {
             System.out.println("Result ID: " + returnedId);
         }
     }
+
 
 
     @Then("status ok response is {int}")

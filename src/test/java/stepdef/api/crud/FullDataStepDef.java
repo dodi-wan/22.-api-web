@@ -32,6 +32,7 @@ public class FullDataStepDef {
     }
 
 
+
     @Given("input {string} {string} {string} {string} {string} {string} {string}" +
             " and location {string} {string} {string} {string} {string}")
     public void inputAndLocation(String title, String firstname, String lastname, String email, String dateOfBirth,
@@ -74,11 +75,13 @@ public class FullDataStepDef {
     }
 
 
+
     @Then("status code should {int}")
     public void statusCodeShould(int expectedCode) {
         System.out.println(response.statusCode());
         assertEquals(expectedCode, response.getStatusCode());
     }
+
 
 
     @And("delete user")
@@ -87,6 +90,7 @@ public class FullDataStepDef {
         response = deletePages.deleteData(id);
         System.out.println(response.prettyPrint() + response.statusCode());
     }
+
 
 
     @Then("response is {int}")

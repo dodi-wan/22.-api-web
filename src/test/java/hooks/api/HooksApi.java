@@ -6,19 +6,25 @@ import io.cucumber.java.Before;
 
 import java.io.IOException;
 
+import static helper.api.ApiUtils.getAfter;
+
 public class HooksApi {
-
-
 
 
     @Before("@api")
     public void setUp() throws IOException {
-        ApiUtils.getRequestSpec();
+        System.out.println("==== Before ===");
 
+        ApiUtils.getRequestSpec();
     }
+
+
 
     @After("@api")
     public void tearDown(){
+        System.out.println("==== After ===");
+
+        getAfter();
 
     }
 }

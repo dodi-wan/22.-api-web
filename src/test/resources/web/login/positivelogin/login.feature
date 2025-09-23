@@ -8,10 +8,10 @@ Feature: Login Automation
 
   @web
   Scenario Outline: login username credential passed login
-    Given verify on homepage
-    And input "<username>" and "<password>"
-    Then click button login
-    Given verify login
+    Given user is on homepage saucedemo
+    When user input username "<username>" and password "<password>"
+    And  user click button login
+    Then verify user already login page saucedemo
 
     Examples:
     |     username                  |   password          |
@@ -22,7 +22,12 @@ Feature: Login Automation
     |     visual_user               |   secret_sauce      |
 
 
-  Scenario: login username credential has been locked
-    Given input "locked_out_user" and "secret_sauce"
-    And click button login
-    Then message "Epic sadface: Sorry, this user has been locked out."
+  Scenario Outline: login username credential has been locked
+    Given user is on homepage saucedemo
+    When user input username "<username>" and password "<password>"
+    And user click button login
+    Then message login "<Expected message>"
+
+    Examples:
+      | username        |   password   | Expected message                                     |
+      | locked_out_user | secret_sauce | Epic sadface: Sorry, this user has been locked out.  |

@@ -1,8 +1,8 @@
 package stepdef.api.negative;
 
 import helper.api.ApiUtils;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
@@ -29,8 +29,9 @@ public class NegativeDataStepDef {
     }
 
 
-    @Given("create input data {string} {string} {string} {string} {string}")
-    public void createInputData(String title, String firstname, String lastname, String email, String gender) throws IOException {
+
+    @When("user create new data should input {string} {string} {string} {string} {string}")
+    public void userCreateNewDataShouldInput(String title, String firstname, String lastname, String email, String gender) throws IOException {
         Map<String, Object> updateData = new HashMap<>();
         updateData.put("title", title);
         updateData.put("firstName", firstname);
@@ -48,6 +49,7 @@ public class NegativeDataStepDef {
         response = postPages.postData(updateData);
         System.out.println("result " + response.prettyPrint());
     }
+
 
 
     @Then("status code {int}")

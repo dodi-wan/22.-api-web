@@ -1,8 +1,8 @@
 package stepdef.web.featureNavigate.homepage.featureAll_item;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.web.featureNavigate.featureAllitem.AllitemPages;
 import pages.web.log.login.LoginPage;
 
@@ -20,8 +20,8 @@ public class AllitemStepDef {
     }
 
 
-    @When("click shop cart")
-    public void clickShopCart() {
+    @And("user click shop cart")
+    public void userClickShopCart() {
         allItemPages.shopCartButton();
     }
 
@@ -52,6 +52,7 @@ public class AllitemStepDef {
 
         System.out.println("Result Log-in\n" + validateTitle + "\n" + validateDesc + "\n" + validateProduct);
     }
+
 
 
 }

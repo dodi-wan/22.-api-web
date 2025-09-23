@@ -15,6 +15,7 @@ public class ApiUtils {
 
     private static RequestSpecification requestSpecification;
     private static String URL;
+    private static Response lastResponse;
 
     public ApiUtils(RequestSpecification requestSpecification) {
         this.requestSpecification = requestSpecification;
@@ -38,5 +39,12 @@ public class ApiUtils {
 
 
 
-
+    public static Response getAfter() {
+        if (lastResponse != null) {
+            System.out.println("Last API Reponse : " + lastResponse.statusCode());
+            System.out.println("Body : " + lastResponse.asPrettyString());
+        }
+        RestAssured.reset();
+        return lastResponse;
+    }
 }

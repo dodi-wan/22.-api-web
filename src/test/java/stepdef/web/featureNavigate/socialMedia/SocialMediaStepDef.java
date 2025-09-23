@@ -38,6 +38,7 @@ public class SocialMediaStepDef {
     public void verifyHomepageTwitter() {
         String validateTitle = socialMediaPage.validateTwitter();
         assertEquals("Don’t miss what’s happening", validateTitle);
+
         System.out.println("Result ===" + validateTitle + "===");
     }
 

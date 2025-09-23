@@ -1,5 +1,6 @@
 package stepdef.web.product;
 
+import io.cucumber.java.en.But;
 import io.cucumber.java.en.Then;
 import pages.web.product.removeCart.RemoveCartPages;
 
@@ -13,10 +14,12 @@ public class RemoveCart {
 
 
 
-    @Then("remove product")
-    public void removeProduct() {
+    @But("user remove product")
+    public void userRemoveProduct() {
         removeCartPages.removeBackPack();
     }
+
+
 
     @Then("remove all product")
     public void removeAllProduct() {

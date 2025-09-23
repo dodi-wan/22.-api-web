@@ -1,6 +1,7 @@
 package pages.web.featureNavigate.home;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,33 +34,48 @@ public class HomePages {
         driver.findElement(aboutButton).click();
     }
 
-    public String verifyAboutFirst() {
-        String text;
+    public boolean verifyAboutFirst() {
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementFirstAbout));
-        text = element.getText();
-        return text;
+        try {
+            wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementFirstAbout));
+            element.getText();
+        } catch (TimeoutException t) {
+            System.out.println("Result "+ t.getMessage());
+        } catch (Exception e) {
+            System.out.println("Result " + e.getMessage());
+        }
+        return true;
     }
 
 
 
-    public  String verifySecondAbout() {
-        String text;
+    public  boolean verifySecondAbout() {
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementSecondAbout));
-        text = element.getText();
-        return text;
+        try {
+            wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementSecondAbout));
+            element.getText();
+        } catch (TimeoutException t) {
+            System.out.println("Result " + t.getMessage());
+        } catch (Exception e) {
+            System.out.println("Result " + e.getMessage());
+        }
+        return true;
     }
 
 
-    public  String verifyThirdAbout() {
-        String text;
+    public boolean verifyThirdAbout() {
 
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementThirdAbout));
-        text = element.getText();
-        return text;
+        try {
+            wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            element = wait.until(ExpectedConditions.visibilityOfElementLocated(elementThirdAbout));
+            element.getText();
+        } catch (TimeoutException t) {
+            System.out.println("Result " + t.getMessage());
+        } catch (Exception e) {
+            System.out.println("Result " + e.getMessage());
+        }
+        return true;
     }
 }

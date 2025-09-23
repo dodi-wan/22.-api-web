@@ -27,7 +27,6 @@ public class GetPages {
                 .when()
                 .get("user/" + userId);
     }
-
 }
 
 
